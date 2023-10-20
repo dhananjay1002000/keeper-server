@@ -2,16 +2,21 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import bodyParser from 'body-parser'; 
-
-const app = express();
-const port = 4000;
-app.use(cors());
-app.use(bodyParser.json()); 
-app.use(bodyParser.urlencoded({ extended: true }));
 import dotenv from 'dotenv';
 dotenv.config();
-
+const app = express();
+const port = 4000;
+const CORS_URL = process.env.CORS_URL
 const URI = process.env.URI;
+
+app.use(bodyParser.json()); 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(cors({
+  origin:CORS_URL,
+  methods: 'GET , PUT , POST , DELETE',
+}));
+
+
 mongoose.connect(URI ,{
   useNewUrlParser:true, 
   useUnifiedTopology:true
