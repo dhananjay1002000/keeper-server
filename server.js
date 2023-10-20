@@ -2,14 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const dotenv = require('dotenv');
-dotenv.config();
+
 
 const app = express();
 const port = 4000;
-const CORS_URL = process.env.CORS_URL
-const URI = process.env.URI;
-
+const URI="mongodb+srv://admin:1234@cluster0.utkfs.mongodb.net/"
+const CORS_URL="https://keeper-app-v1.onrender.com"
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({
