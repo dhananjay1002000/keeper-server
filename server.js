@@ -2,8 +2,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import bodyParser from 'body-parser'; 
-import dotenv from 'dotenv';
-dotenv.config();
+require('dotenv').config();
+
 const app = express();
 const port = 4000;
 const CORS_URL = process.env.CORS_URL
